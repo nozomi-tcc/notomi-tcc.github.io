@@ -165,7 +165,7 @@ header a {color: inherit;}
 	}/*追加指定ここまで*/
 
 
-/*開閉メニュー
+/*開閉メニュー および メニュー画像リスト
 ---------------------------------------------------------------------------*/
 /*メニューブロック共通*/
 #menubar {
@@ -187,7 +187,6 @@ header a {color: inherit;}
 	margin-bottom: 1rem;	/*下に１文字分のスペースを空ける。メニュー同士の間隔です。*/
 	padding: 1rem 2rem;		/*メニュー内の余白。上下に１文字分、左右に２文字分。*/
 }
-
 
 /*３本バー（ハンバーガー）アイコン設定
 ---------------------------------------------------------------------------*/
@@ -295,6 +294,40 @@ header a {color: inherit;}
 	align-self: flex-end;
 }
 
+/*menuページ
+---------------------------------------------------------------------------*/
+/*ボックス１個あたりの設定*/
+.list {
+	position: relative;
+	float: left;	/*左に回り込み*/
+	width: 33.3%;	/*幅*/
+}
+/*画像*/
+.list img {
+	transition: 1s;
+	opacity: 0.5;	/*50%の透明度にする*/
+}
+/*画像（マウスオン時）*/
+.list:hover img {
+	opacity: 1;	/*マウスオン時に100%色を出す*/
+}
+/*photoボックス内の段落(p)タグ*/
+.list p {
+	display: none;	/*非表示にしておく設定*/
+	padding: 5px 0 !important;	/*上下、左右への段落タグ内の余白*/
+	position: absolute;
+	bottom: 0px;	/*listボックスの下から0pxの場所に配置*/
+	width: 100%;	/*幅*/
+	background: #111;	/*背景色（古いブラウザ用）*/
+	background: rgba(0,0,0,0.5);	/*背景色。0,0,0は黒の事で0.5は50%色がついた状態のこと*/
+	color: #fff;		/*文字色*/
+	text-align: center;	/*文字をセンタリング*/
+	font-size: 80%;		/*文字サイズ*/
+}
+/*マウスオン時の段落タグ*/
+.list:hover p {
+	display: block;	/*非表示から表示に切り替える*/
+}
 
 /*コンテンツ
 ---------------------------------------------------------------------------*/
@@ -456,11 +489,12 @@ main h2.c {
 	font-size: 0.7em;		/*文字サイズを70%*/
 }
 
-/*ボックス内のp要素*/
+/*ボックス内のp要素
 .list-grid7 .list p {
 	font-size: 0.85rem;	/*文字サイズを85%に*/
 	line-height: 1.5;	/*行間を少し狭く*/
 }
+*/
 
 /*ボックス内のfigure画像*/
 .list-grid7 .list figure {
@@ -874,21 +908,6 @@ ul.step li:last-child::after {
 }
 
 
-/*SNSアイコン
----------------------------------------------------------------------------*/
-#footer .sns {
-	list-style: none;
-	margin: 0;padding: 0;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 1rem;		/*アイコン同士のマージン的な要素。１文字分。*/
-}
-
-#footer .sns i {
-	font-size: 30px;	/*アイコンサイズ*/
-}
-
-
 /*Google Map用
 ---------------------------------------------------------------------------*/
 #footer .iframe {
@@ -906,60 +925,6 @@ ul.step li:last-child::after {
 	height: 100%;
 }
 
-
-/*フッター内の受付時間テーブル
----------------------------------------------------------------------------*/
-.week {
-	width: 100%;
-	border-collapse: separate;
-	border-spacing: 0;
-	overflow: hidden;
-	border-radius: 5px;	/*角を丸くする指定*/
-	border: 1px solid #ccc;	/*テーブル外側の線の幅、線種、色*/
-	table-layout: fixed;	/*幅を均等に*/
-	background: #fff;		/*テーブル全体の背景色*/
-	color: #555;			/*テーブル全体の文字色*/
-}
-
-/*受付時間の幅*/
-.week th:first-child,
-.week td:first-child {
-	width: 25%;
-}
-
-/*各曜日の幅*/
-.week th:not(:first-child),
-.week td:not(:first-child) {
-	width: calc(75% / 7);	/*受付時間で25%とっているので残りの75%を7で割る*/
-}
-
-/*th(曜日)とtd(時間)*/
-.week th,
-.week td {
-	padding: 1rem 0;	/*ボックス内の余白。上下に１文字分、左右は0。*/
-	text-align: center;	/*テキストをセンタリング*/
-	border-bottom: 1px solid #ccc;	/*下の線の幅、線種、色*/
-	border-right: 1px solid #ccc;	/*右の線の幅、線種、色*/
-}
-
-/*th(曜日)とtd(時間)のそれぞれ最後の右側の線を消す*/
-.week th:last-child,
-.week td:last-child {
-	border-right: none;
-}
-
-/*最後の行の下線を消す*/
-.week tr:last-child td {
-	border-bottom: none;
-}
-
-/*th(曜日)の追加指定*/
-.week th {
-	background: #fafafa;	/*背景色*/
-}
-.week td {
-	border-bottom: 1px solid #ccc;	/*下の線の幅、線種、色*/
-}
 
 
 /*著作部分（※意図的に見えなくしたりしないで下さい。規約違反になります。）
